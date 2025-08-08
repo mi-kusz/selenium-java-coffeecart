@@ -990,7 +990,11 @@ public class MenuTest
         getModalEmailInput().sendKeys("test@test.com");
         getSubmitPaymentButton().click();
 
-        assertTrue(getSnackbarElement().isDisplayed());
+        WebElement snackbar = getSnackbarElement();
+
+        wait.until(ExpectedConditions.visibilityOf(snackbar));
+
+        assertTrue(snackbar.isDisplayed());
     }
 
     @Test
